@@ -1,1 +1,2 @@
-console.log('Welcome to the Typescript Template')
+export * from './models/ index'
+export * from './lib/acousticbrainz'
