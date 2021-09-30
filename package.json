@@ -1,6 +1,6 @@
 {
   "name": "acousticbrainz",
-  "version": "0.0.2-beta",
+  "version": "0.0.2-beta-2",
   "description": "wrapper package for the acousticbrainz api",
   "main": "dist/index.js",
   "repository": {

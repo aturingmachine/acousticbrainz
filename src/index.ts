@@ -1,2 +1,5 @@
-export * from './types'
+export * from './types/high-level'
+export * from './types/low-level'
+export * from './types/metadata'
+export * from './types/response'
 export * from './lib/acousticbrainz'
