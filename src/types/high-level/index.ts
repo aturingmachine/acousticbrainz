@@ -1,11 +1,11 @@
 import { MetaData } from '../metadata'
 
-export type HighLevelProbability = {
+type HighLevelProbability = {
   probability: number
   values: string
 }
 
-export type HighLevelData = {
+type HighLevelData = {
   danceability: HighLevelProbability
   gender: HighLevelProbability
   genre_dortmund: HighLevelProbability
@@ -23,5 +23,9 @@ export type HighLevelData = {
   timbre: HighLevelProbability
   tonal_atonal: HighLevelProbability
   voice_instrumental: HighLevelProbability
+}
+
+export type HighLevelRecord = {
+  highlevel: HighLevelData
   metadata: MetaData
 }

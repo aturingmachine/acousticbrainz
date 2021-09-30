@@ -1,6 +1,0 @@
-export * from './feature-types'
-export * from './lowlevel'
-export * from '../metadata'
-export * from './rhythm'
-export * from './shared'
-export * from './tonal'

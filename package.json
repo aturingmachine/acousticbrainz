@@ -4,13 +4,17 @@
   "description": "wrapper package for the acousticbrainz api",
   "main": "dist/index.js",
   "scripts": {
-    "prepublishOnly": "npm run build",
     "build": "tsc",
     "dev": "npm run build && node dist/index.js",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "rm -rf dist && tsc --declaration"
   },
+  "files": [
+    "dist/"
+  ],
+  "types": "./types",
   "author": "",
   "license": "MIT",
   "devDependencies": {

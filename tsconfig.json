@@ -1,6 +1,7 @@
 {
   "include": [
     "src/**/*",
+    "src/types",
   ],
   "compilerOptions": {
     "target": "esnext",
@@ -14,12 +15,19 @@
     "outDir": "dist",
     "types": [
       "node",
-      "jest"
+      "jest",
+    ],
+    "typeRoots": [
+      "src/types"
     ],
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "~/*": [
         "./src/*"
+      ],
+      "*": [
+        "./*",
+        "./types/*"
       ]
     },
   },
