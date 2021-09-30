@@ -1,6 +1,6 @@
 {
   "name": "acousticbrainz",
-  "version": "0.0.2",
+  "version": "0.0.2-beta",
   "description": "wrapper package for the acousticbrainz api",
   "main": "dist/index.js",
   "repository": {
@@ -19,7 +19,7 @@
   "files": [
     "dist/"
   ],
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "author": "",
   "license": "MIT",
   "devDependencies": {
