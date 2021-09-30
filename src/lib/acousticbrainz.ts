@@ -40,8 +40,17 @@ export type AcousticBrainzConfig = {
   /**
    * Will throw an error if a request is made when the
    * rate limit has been reached.
+   *
+   * @default false
    */
   errorOnRateLimit?: boolean
+
+  /**
+   * Disables rate limit checking
+   *
+   * @default false
+   */
+  disableRateLimitCheck?: boolean
 }
 
 export class AcousticBrainz {
@@ -141,7 +150,11 @@ export class AcousticBrainz {
     path: string,
     config: AxiosRequestConfig
   ): Promise<T> {
-    if (this.limitRemaining < 1 && this.resetsAt > Date.now()) {
+    if (
+      this.limitRemaining < 1 &&
+      this.resetsAt > Date.now() &&
+      !this.config.disableRateLimitCheck
+    ) {
       if (this.config.errorOnRateLimit) {
         throw new Error('AcousticBrainz API Rate Limit Reached')
       } else {

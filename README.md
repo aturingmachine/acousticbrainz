@@ -1,58 +1,44 @@
-# Typescript Template
+# Acousticbrainz
 
-Template for making Typescript projects, has my preferred configurations.
+Package for interacting with the [Acousticbrainz API](https://similarity.acousticbrainz.org/data).
 
-## Using this template
+## Installation
 
 ```sh
-# Clone the template
-git clone git@github.com:aturingmachine/ts-template.git <dir-name>
-
-# Run the init script
-npm run setup
-# Optionally pass p|pretty to colorize output
-npm run setup pretty
-
-# Follow the script's prompts
-
-# Run the project
-npm run dev
+npm i acousticbrainz
 ```
 
-## Template Configuration
+## Usage
 
-### Runtime
+### Typescript
+```typescript
+import { AcousticBrainz } from 'acousticbrainz'
 
-- Node v12.13.0 for modules
-- Node v16.3.0 for projects
+const ab = new AcousticBrainz()
+```
 
-### Testing
+### JavaScript
+```javascript
+const { AcousticBrainz } = require('acousticbrainz')
 
-- jest
-- ts-jest
+const ab = new AcousticBrainz()
+```
 
-### Linting
+## Config Options
 
-- prettier
-- eslint
-  - @typescript-eslint/eslint-plugin
-  - @typescript-eslint/parser
-  - eslint-config-prettier
-  - eslint-plugin-import
-  - eslint-plugin-prettier
-  - eslint
-  - jest
+The constructor takes an optional configuration object:
 
-### Scripts
-
-```js
-scripts: {
-  "build": "tsc",
-  "dev": "npm run build && node dist/index.js",
-  "lint": "eslint",
-  "lint:fix": "eslint --fix",
-  "test": "jest"
-  // Only for modules
-  "prepublishOnly": "npm run build",
+```javascript
+{
+  // Your AcousticBrainz API Key. Optional - May increase rate limits
+  apiKey: '',
+  // If true acousticbrainz will throw an error if it believes it has hit the rate limit
+  errorOnRateLimit: false,
+  // If true disable all rate limit checks
+  disableRateLimitCheck: false,
 }
 ```
+
+## Rate Limiting
+
+AcousticBrainz's API implements rate limiting which is communicated via headers on the API responses. This library attempts to mitigate rejected API calls caused by rate limiting by waiting until the rate limit has refreshed if it believes it has exceeded the rate limit. This is mostly untested and can be disabled via the `disableRateLimitCheck` configuration option.
