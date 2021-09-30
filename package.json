@@ -1,8 +1,13 @@
 {
   "name": "acousticbrainz",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "wrapper package for the acousticbrainz api",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aturingmachine/acousticbrainz"
+  },
+  "homepage": "https://github.com/aturingmachine/acousticbrainz#readme",
   "scripts": {
     "build": "tsc",
     "dev": "npm run build && node dist/index.js",
